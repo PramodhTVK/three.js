@@ -1,4 +1,4 @@
-import Canvas from "./canvas"
+import CanvasModel from "./canvas"
 import Home from "./pages/home"
 import Customizer from "./pages/Customizer"
 
@@ -10,7 +10,7 @@ function App() {
  <main className="app transition-all-ease-in">
   <Home />
   <Customizer />
-  <Canvas />
+  <CanvasModel />
  </main>
   )
 }
