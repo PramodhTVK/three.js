@@ -12,8 +12,12 @@ const Shirt = () => {
 
     const logoTexture = useTexture(snap.logoDecal)
     const fullTexture = useTexture(snap.fullDecal)
+
+    useFrame((state,delta) => {easing.dampC(materials.lambert1.color,snap.color,0.25,delta)})
+
+    const stateString = JSON.stringify(snap)
   return (
-    <group> {/* The <group> component is a wrapper component from React Three Fiber that allows you to group multiple objects together. */}
+    <group key={stateString}> {/* The <group> component is a wrapper component from React Three Fiber that allows you to group multiple objects together. */}
         <mesh castShadow geometry={nodes.T_Shirt_male.geometry} material={materials.lambert1} material-roughness={1} dispose={null}> {/* The <mesh> component is a wrapper component from React Three Fiber that allows you to add a mesh to a scene.In React Three Fiber, the <mesh> component is used to create a 3D mesh object in a Three.js scene. It represents a geometric shape or model with a specific geometry, material, and position. */}
         {/*In the provided code snippet, a <mesh> component is being used to render a 3D object from a glTF file. Let's break down the properties and their meanings:
             castShadow: This property enables or disables casting shadows from the mesh. When set to true, the mesh will cast shadows onto other objects in the scene.
@@ -40,8 +44,12 @@ const Shirt = () => {
             position={[0,0.04,0.15]}
             rotation={[0,0,0]}
             scale={0.15}
-            map={logoTexture} />
-        )}
+            map={logoTexture}
+            depthTest={false}
+            depthWrite={true} />
+        )} {/*map-anisotropy: Specifies the level of anisotropic filtering applied to the decal's texture. Anisotropic filtering is a technique used to improve the visual quality of textures when they are viewed at oblique angles. The value 16 indicates a higher level of anisotropic filtering.
+              depthTest: Determines whether the decal should be tested against other objects in the scene for depth visibility. When false, the decal is not tested against other objects and is always rendered on top. This can be useful for decals that should always be visible, regardless of their position relative to other objects.
+              depthWrite: Specifies whether the decal should write to the depth buffer. When true, the decal will affect the depth buffer, allowing it to occlude other objects and be occluded by them based on their relative positions in the scene.*/}
         
         
         </mesh>
