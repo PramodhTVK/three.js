@@ -20,7 +20,30 @@ const Shirt = () => {
             geometry={nodes.T_Shirt_male.geometry}: The geometry property specifies the geometry data for the mesh. In this case, it is referencing the geometry of a node named T_Shirt_male from the loaded glTF file.
             material={materials.lambert1}: The material property specifies the material to be applied to the mesh. It is referencing a material named lambert1 from the loaded glTF file.
             material-roughness={1}: This property sets the roughness of the material. In this case, it is set to 1, which means the material will have a high level of roughness, resulting in a less shiny appearance.
-            dispose={null}: This property is used to control the disposal behavior of the mesh. Setting it to null prevents the mesh from being automatically disposed when it is removed from the scene. This can be useful in certain scenarios to manage the disposal manually.*/}
+            dispose={null}: This property is used to control the disposal behavior of the mesh. Setting it to null prevents the mesh from being automatically disposed when it is removed from the scene. This can be useful in certain scenarios to manage the disposal manually.
+            The disposal process in the context of computer graphics, such as Three.js, refers to the proper release and cleanup of resources associated with objects that consume memory or other system resources. It involves freeing up resources and memory that are no longer needed, preventing memory leaks and optimizing performance.
+            In Three.js, various objects can consume resources, such as geometries, materials, textures, and buffers. When you no longer need these objects, it is important to dispose of them properly to ensure efficient memory usage.*/}
+        {snap.isFullTexture && (
+          <Decal 
+            position={[0,0,0]}
+            rotation={[0,0,0]}
+            scale={1}
+            map={fullTexture} />
+        )}  {/*Decal is a component that is used to apply texture onto a 3D object on the screen
+              position: Specifies the position of the decal in 3D space. The [0, 0, 0] value means the decal is positioned at the origin of the scene.
+              rotation: Specifies the rotation of the decal around the X, Y, and Z axes. The [0, 0, 0] value means the decal has no rotation.
+              scale: Specifies the scale of the decal. A scale value of 1 means the decal is at its original size.
+              map: Specifies the texture to be used for the decal. The fullTexture variable is likely a reference to a texture object that is imported or defined elsewhere in the code. The map prop expects a texture object to be passed in.*/}
+
+        {snap.isLogoTexture && (
+          <Decal 
+            position={[0,0.04,0.15]}
+            rotation={[0,0,0]}
+            scale={0.15}
+            map={logoTexture} />
+        )}
+        
+        
         </mesh>
     </group>
   )

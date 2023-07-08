@@ -1,0 +1,29 @@
+Firstly children is a special prop in React.They are predefined props that have a specific meaning or behaviour within React.
+They are automatically provided or managed by React itself and they do not need to be explicitly defined by us.
+group = useRef creates a reference object to the Group object returned by `<group>` component.This is because at the time of initialisation group.current is set to undefined but since we pass in the group as the ref attribute.
+The Group object in Three.js is a container that allows you to group multiple objects together in a hierarchical structure
+    position: Represents the position of the group in 3D space.
+    rotation: Represents the rotation of the group.
+    scale: Represents the scale of the group.
+    children: An array of child objects contained within the group.
+    add(object): Adds an object as a child of the group.
+    remove(object): Removes an object from the group.
+    getObjectById(id): Retrieves a child object with the specified id.
+    traverse(callback): Executes a callback function for each descendant object in the group's hierarchy.
+
+Regarding your second question, if the group component returns multiple objects, the group.current.rotation value will depend on the specific context and usage. The group.current property will still reference the underlying Group object, and you can access and manipulate its properties as needed.
+
+If you have multiple objects returned by the group component, and you want to access the rotation property of a specific object within the group, you would need to identify and access that object directly. This can be done using its index within the group.current.children array or by using other identifying properties or methods provided by the Group object.
+But in our case we have just one shirt component so group.current.rotation would point to the rotation angle of the shirt component.
+
+The useFrame hook ensures that the provided callback function is executed on each frame of the animation loop, allowing you to synchronize your React components with the rendering loop of Three.js and create dynamic and interactive scenes.
+The callback function receives two parameters:
+
+state: It represents the current state of the application at that frame. It provides information about the camera, scene, mouse, and other relevant properties that can be used to manipulate the scene.
+
+delta: It represents the time elapsed since the previous frame in seconds. It can be used to calculate smooth animation transitions by factoring in the time between frames.
+In computer graphics and animation, an animation loop refers to the continuous repetition of rendering frames to create the illusion of motion.The animation loop typically runs at the frame rate of the display, which is typically around 60 frames per second (FPS)
+
+Yes, that's correct. React Three Fiber's useFrame hook is called on every frame, regardless of whether updates are made to the group object or any other objects in the scene.
+
+The purpose of the useFrame hook is to provide a way to perform actions or update the scene on every frame of the animation loop. It ensures that the provided callback function is executed continuously and synchronously with the rendering process.
