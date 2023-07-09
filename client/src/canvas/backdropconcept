@@ -3,3 +3,17 @@ AccumulativeShadows: This component is provided by @react-three/drei and enables
 RandomizedLight: This component is also provided by @react-three/drei and allows you to create randomized light effects in your scene. It generates random positions, colors, and intensities for the light source, creating dynamic and ever-changing lighting scenarios. You can use this component to add variation and visual interest to your Three.js scenes.
 
 The behavior of shadows changing as you rotate a 3D object is a result of the way shadows are calculated and rendered in a 3D scene. When you enable shadows in a scene, the renderer analyzes the position and geometry of light sources and objects in the scene to determine how shadows should be cast and displayed.By default, when you rotate a 3D object, the lighting and shadow calculations are automatically updated to reflect the new position and orientation of the object. This is because the rendering engine takes into account the relative positions of the light source, the object, and other objects in the scene to calculate how shadows should be cast and displayed.
+
+ref={shadows}: This assigns the shadows ref to the AccumulativeShadows component, allowing you to reference and interact with the component programmatically.
+
+temporal: This prop enables temporal reprojection for the shadows, which helps to reduce flickering artifacts when the shadows are moving or changing over time.
+
+frames={60}: This sets the number of frames used for temporal reprojection. In this case, it is set to 60 frames.
+
+alphaTest={0.85}: This prop determines the alpha threshold for the shadows. It defines the minimum alpha value at which a fragment will be considered opaque. Fragments with alpha values below this threshold will be discarded, helping to create more accurate and crisp shadows.
+
+scale={10}: This prop determines the scale of the shadows. It specifies the multiplier applied to the size of the shadows, allowing you to control the overall size and intensity of the shadows.
+
+rotation={[Math.PI / 2, 0, 0]}: This prop sets the rotation of the shadows. In this case, it is set to [Math.PI / 2, 0, 0], which rotates the shadows by 90 degrees around the X-axis.
+
+position={[0, 0, -0.14]}: This prop sets the position of the shadows. It determines the location of the shadows in the scene. In this case, it is set to [0, 0, -0.14], which positions the shadows slightly below the objects in the scene.    
