@@ -12,6 +12,29 @@ import { CustomButton,ColorPicker,AIPicker,FilePicker,Tab } from '../components'
 const Customizer = () => {
   const snap = useSnapshot(state)
 
+  const [file,setFile] = useState('')
+  const [prompt,setPrompt] = useState('')
+  const [generatingImg,setGeneratingImg] = useState(false)
+  const [activeEditorTab,setActiveEditorTab] = useState("")
+  const [activeFilterTab,setActiveFilterTab] = useState({
+    logoShirt: true,
+    stylishShirt: false,
+  })
+
+
+
+  const generateTabContent = () => {
+    switch (activeEditorTab){
+      case "colorpicker":
+        return <ColorPicker />
+      case "aipicker":
+        return <AIPicker />
+      case "filepicker":
+        return <FilePicker />
+      default:
+        return null;
+    }
+  }
   return (
     <AnimatePresence>
       {!snap.intro && (
@@ -27,8 +50,11 @@ const Customizer = () => {
             min-h-screen: The min-h-screen class is used to set the minimum height of an element to the height of the viewport (screen height). It ensures that the element takes up at least the full height of the viewport, preventing it from being shorter than the screen height. This class is commonly used to create full-height sections or layouts that span the entire viewport. */}
             <div className='editortabs-container tabs'>
               {EditorTabs.map((tab) => (
-                <Tab key={tab.name} tab={tab} handleClick={()=>{}}/>
-              ))}
+                <Tab key={tab.name} tab={tab} handleClick={()=>setActiveEditorTab(tab.name)}/>
+              ))}{/*The EditorTabs.map((tab) => ...) part is using the map function to iterate over each element in the EditorTabs array. For each element, a Tab component is rendered.
+                    Inside the map function, a key prop is assigned to each Tab component using the tab.name value. The key prop is necessary for React to efficiently manage and update the list of components.
+                    The tab object itself is passed as a prop to the Tab component using the tab prop. This allows each Tab component to access and use the properties of the corresponding tab object in its rendering logic or event handling.The tab object is every element of the EditorTabs array.tab will represent ind[0] in the first iteration and so on. */}
+                    {generateTabContent()}
             </div>
           </div>
         </motion.div>

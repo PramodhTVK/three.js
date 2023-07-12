@@ -50,8 +50,6 @@ const Shirt = () => {
         )} {/*map-anisotropy: Specifies the level of anisotropic filtering applied to the decal's texture. Anisotropic filtering is a technique used to improve the visual quality of textures when they are viewed at oblique angles. The value 16 indicates a higher level of anisotropic filtering.
               depthTest: Determines whether the decal should be tested against other objects in the scene for depth visibility. When false, the decal is not tested against other objects and is always rendered on top. This can be useful for decals that should always be visible, regardless of their position relative to other objects.
               depthWrite: Specifies whether the decal should write to the depth buffer. When true, the decal will affect the depth buffer, allowing it to occlude other objects and be occluded by them based on their relative positions in the scene.*/}
-        
-        
         </mesh>
     </group>
   )

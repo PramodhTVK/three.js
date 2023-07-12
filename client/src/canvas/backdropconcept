@@ -17,3 +17,8 @@ scale={10}: This prop determines the scale of the shadows. It specifies the mult
 rotation={[Math.PI / 2, 0, 0]}: This prop sets the rotation of the shadows. In this case, it is set to [Math.PI / 2, 0, 0], which rotates the shadows by 90 degrees around the X-axis.
 
 position={[0, 0, -0.14]}: This prop sets the position of the shadows. It determines the location of the shadows in the scene. In this case, it is set to [0, 0, -0.14], which positions the shadows slightly below the objects in the scene.    
+
+
+Setting the position of the randomized light to [0, 0, 0] can cause the screen to blackout because the light source is placed at the exact same position as the camera. This creates a situation where the light rays emitted from the light source hit the camera directly, resulting in a complete blackout of the scene.
+
+In a 3D rendering environment, the position of the light source is crucial for proper lighting and shadow rendering. When the light source is too close or aligned with the camera position, it can cause issues with the rendering and result in unexpected effects, such as a blackout.
