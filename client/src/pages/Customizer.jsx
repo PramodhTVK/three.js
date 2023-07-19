@@ -36,15 +36,31 @@ const Customizer = () => {
     }
   }
 
-  const handleSubmit = async (type) => {
+    const handleSubmit = async (type) => {
     if(!prompt) return alert("Please enter a prompt");
 
     try {
-        //call backend to generate the AI image
-        
+      setGeneratingImg(true);
+
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+          n: 1,
+          size: '1024x1024',
+          response_format: 'b64_json'
+        })
+      })
+
+      const data = await response.json();
+      console.log(data);
+      handleDecals(type, `data:image/png;base64,${data.photo}`)
     } catch (error) {
-        alert(error)
-    }finally{
+      alert(error)
+    } finally {
       setGeneratingImg(false);
       setActiveEditorTab("");
     }
