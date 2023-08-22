@@ -23,3 +23,8 @@
 ## File Picker ##
 ![3d4](https://github.com/PramodhTVK/three.js/assets/95704815/a047c022-9b93-4371-b38c-9cf6342ba047)
 
+## AI Picker ##
+Currently being worked on!
+![3d6](https://github.com/PramodhTVK/three.js/assets/95704815/c3e8ee7c-273b-48b7-bc94-63f084be71de)
+
+
