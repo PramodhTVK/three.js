@@ -1,3 +1,4 @@
+![3D-Shirt](https://github.com/PramodhTVK/three.js/assets/95704815/84b0b9a4-700e-4603-a539-9f87380551e4)
 # Thread-It #
 
 - An *AI Powered* 3D Shirt Designer Web App.
